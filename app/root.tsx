@@ -29,12 +29,17 @@ export function Layout({ children }: { children: React.ReactNode }) {
         {children}
         <footer>
           <div>
-            <a href="https://social.lol/@zaphod" rel="noopener noreferrer">
+            <a href="https://social.lol/@zaphod" rel="noopener noreferrer" target="_blank">
               Mastodon
             </a>
             •<Link to="/changelog">Changelog</Link>
           </div>
-          <a className="made-by-link" href="https://ethana.dev/" rel="noopener noreferrer">
+          <a
+            className="made-by-link"
+            href="https://ethana.dev/"
+            rel="noopener noreferrer"
+            target="_blank"
+          >
             Made by Ethan
           </a>
         </footer>
