@@ -25,7 +25,7 @@ export const loader: LoaderFunction = async ({ params, context }) => {
 export default function View() {
   const collection = useLoaderData<ICollection>();
   return (
-    <>
+    <main>
       <h1>{collection.title}</h1>
       <p>{collection.description}</p>
       <h2>Links:</h2>
@@ -49,6 +49,6 @@ export default function View() {
           );
         })}
       </ul>
-    </>
+    </main>
   );
 }
