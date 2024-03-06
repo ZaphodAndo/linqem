@@ -1,0 +1,76 @@
+@font-face {
+    font-family: "Inter";
+    src: local(Inter) url("/fonts/Inter.ttf") format("truetype");
+}
+
+:root {
+    --primary-font: "Inter", "Segoe UI", -apple-system, BlinkMacSystemFont, "Fira Sans",
+    "Helvetica Neue", sans-serif;
+
+    --colour-white: hsla(0, 0%, 100%, 100%);
+    --colour-off-white: hsla(60, 56%, 96%, 100%);
+    --colour-black: hsla(0, 0%, 15%, 100%);
+    --colour-grey: hsla(0, 0%, 43%, 100%);
+    --colour-light-grey: hsla(0, 0%, 0%, 15%);
+    --colour-orange: hsla(6, 95%, 59%, 100%);
+    --colour-blue: hsla(228, 52%, 54%, 100%);
+
+    --background-colour: var(--colour-off-white);
+    --text-colour: var(--colour-grey);
+    --text-colour-dark: var(--colour-black);
+    --border-colour: var(--colour-light-grey);
+}
+
+html {
+    font-family: var(--primary-font);
+    background-color: var(--background-colour);
+    color: var(--text-colour);
+}
+
+body {
+    max-width: 760px;
+    margin: 6.25rem auto;
+}
+
+a {
+    color: var(--text-colour);
+
+    &:hover, &:focus {
+        color: var(--colour-orange);
+        text-decoration: unset;
+    }
+}
+
+nav {
+    display: flex;
+    align-items: center;
+    margin-bottom: 6.25rem;
+}
+.nav-links {
+    display: flex;
+    gap: 1.25rem;
+    margin: 0 0 0 auto;
+
+    & a {
+        text-underline-offset: 0.2em;
+    }
+}
+
+footer {
+    margin-top: 100%;
+    display: flex;
+    border-top: 1px solid var(--border-colour);
+    padding-top: 1.25rem;
+
+    & div {
+        display: flex;
+        gap: 0.5rem;
+    }
+
+    & a {
+        text-decoration: none;
+    }
+}
+.made-by-link {
+    margin: 0 0 0 auto;
+}

@@ -8,11 +8,15 @@
     "deploy": "npm run build && wrangler pages deploy ./build/client",
     "dev": "remix vite:dev",
     "lint": "eslint --ignore-path .gitignore --cache --cache-location ./node_modules/.cache/eslint .",
-    "start": "wrangler pages dev ./build/client",
+    "start": "wrangler pages dev ./build/client --d1 LINQEM_DB=3345e0ef-5385-462d-abaa-cd764dc837b7",
     "typecheck": "tsc",
     "typegen": "wrangler types",
     "preview": "npm run build && wrangler pages dev ./build/client",
-    "build-cf-types": "wrangler types"
+    "build-cf-types": "wrangler types",
+    "seed-local-db": "wrangler d1 execute linqem --file ./seed.sql --local",
+    "prettier": "prettier --ignore-path .gitignore \"**/*.+(js|json|ts|tsx|jsx)\"",
+    "format": "npm run prettier -- --write",
+    "check-format": "npm run prettier -- --list-different"
   },
   "dependencies": {
     "@remix-run/cloudflare": "^2.7.2",
@@ -36,6 +40,7 @@
     "eslint-plugin-react": "^7.33.2",
     "eslint-plugin-react-hooks": "^4.6.0",
     "node-fetch": "^3.3.2",
+    "prettier": "^3.2.5",
     "typescript": "^5.1.6",
     "vite": "^5.1.0",
     "vite-tsconfig-paths": "^4.2.1",

@@ -1,0 +1,36 @@
+.header {
+    display: flex;
+    align-items: center;
+    border-bottom: 1px solid var(--border-colour);
+    padding-bottom: 0.625rem;
+
+    & p {
+        margin: 0;
+    }
+
+    & :last-child {
+        margin: 0 0 0 auto;
+    }
+}
+
+ul {
+    list-style-type: none;
+    padding: 0;
+    margin: 0;
+}
+
+li {
+    display: flex;
+    margin-top: 0.9rem;
+}
+li a {
+    text-decoration: unset;
+    color: var(--text-colour-dark);
+}
+li time {
+    margin: 0 0 0 auto;
+}
+
+.no-collection-message {
+    text-align: center;
+}

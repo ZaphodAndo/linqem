@@ -1,10 +1,11 @@
-import {
-  Links,
-  Meta,
-  Outlet,
-  Scripts,
-  ScrollRestoration,
-} from "@remix-run/react";
+import { Link, Links, Meta, Outlet, Scripts, ScrollRestoration } from "@remix-run/react";
+import React from "react";
+
+import type { LinksFunction } from "@remix-run/cloudflare";
+
+import styles from "~/styles/root.css?url";
+
+export const links: LinksFunction = () => [{ rel: "stylesheet", href: styles }];
 
 export function Layout({ children }: { children: React.ReactNode }) {
   return (
@@ -16,7 +17,27 @@ export function Layout({ children }: { children: React.ReactNode }) {
         <Links />
       </head>
       <body>
+        <nav>
+          <Link to="/">
+            <img src="/full-logo.svg" alt="Go to home" />
+          </Link>
+          <div className="nav-links">
+            <Link to="/create">Create</Link>
+            <Link to="/">Home</Link>
+          </div>
+        </nav>
         {children}
+        <footer>
+          <div>
+            <a href="https://social.lol/@zaphod" rel="noopener noreferrer">
+              Mastodon
+            </a>
+            •<Link to="/changelog">Changelog</Link>
+          </div>
+          <a className="made-by-link" href="https://ethana.dev/" rel="noopener noreferrer">
+            Made by Ethan
+          </a>
+        </footer>
         <ScrollRestoration />
         <Scripts />
       </body>
