@@ -19,6 +19,8 @@
     --text-colour: var(--colour-grey);
     --text-colour-dark: var(--colour-black);
     --border-colour: var(--colour-light-grey);
+    --main-accent-colour: var(--colour-orange);
+    --secondary-accent-colour: var(--colour-blue);
 }
 
 html {
@@ -29,14 +31,22 @@ html {
 
 body {
     max-width: 760px;
-    margin: 6.25rem auto;
+    margin: 6.25rem auto 0 auto;
+
+    min-height: calc(90vh);
+    display: flex;
+    flex-direction: column;
+}
+
+main {
+    flex-grow: 1;
 }
 
 a {
     color: var(--text-colour);
 
     &:hover, &:focus {
-        color: var(--colour-orange);
+        color: var(--main-accent-colour);
         text-decoration: unset;
     }
 }
@@ -57,7 +67,7 @@ nav {
 }
 
 footer {
-    margin-top: 100%;
+    margin-top: auto;
     display: flex;
     border-top: 1px solid var(--border-colour);
     padding-top: 1.25rem;

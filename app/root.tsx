@@ -1,4 +1,13 @@
-import { Link, Links, Meta, Outlet, Scripts, ScrollRestoration } from "@remix-run/react";
+import {
+  isRouteErrorResponse,
+  Link,
+  Links,
+  Meta,
+  Outlet,
+  Scripts,
+  ScrollRestoration,
+  useRouteError
+} from "@remix-run/react";
 import React from "react";
 
 import type { LinksFunction } from "@remix-run/cloudflare";
@@ -47,6 +56,21 @@ export function Layout({ children }: { children: React.ReactNode }) {
         <Scripts />
       </body>
     </html>
+  );
+}
+
+export function ErrorBoundary() {
+  const error = useRouteError();
+  return (
+    <main>
+      <h1>
+        {isRouteErrorResponse(error)
+          ? `${error.status} ${error.statusText}`
+          : error instanceof Error
+            ? error.message
+            : "Unknown Error"}
+      </h1>
+    </main>
   );
 }
 

@@ -16,7 +16,6 @@ export const getCollection = async (collectionId: string, context: AppLoadContex
     return null;
   }
 
-  results[0].links = JSON.parse(results[0].links as string);
   results[0].sections = JSON.parse(results[0].sections as string);
   return results[0];
 };
