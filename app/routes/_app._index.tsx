@@ -1,6 +1,6 @@
 import { json } from "@remix-run/cloudflare";
 import { useLoaderData, Link } from "@remix-run/react";
-import { getCollections } from "~/lib/db.server";
+import { getCollections } from "~/models/collections.server";
 import { formatDate } from "~/lib/formatDate";
 
 import type { LinksFunction, LoaderFunction } from "@remix-run/cloudflare";

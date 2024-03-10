@@ -1,0 +1,80 @@
+.logo {
+    width: 126px;
+    height: 27px;
+    margin: clamp(1.25rem, 0.8099rem + 1.8779vw, 2.5rem) 0 0 clamp(1.25rem, 0.8099rem + 1.8779vw, 2.5rem);
+}
+
+main {
+    display: flex;
+    flex-direction: column;
+    margin: 20vh auto 0 auto;
+    padding: 0 20px;
+    max-width: 384px;
+}
+
+form {
+    display: flex;
+    flex-direction: column;
+}
+
+h1 {
+    color: var(--text-colour-dark);
+    font-weight: 500;
+    font-size: 2rem;
+    margin: 0 0 0.5rem 0;
+}
+
+p {
+    margin: 0;
+}
+
+.sub-text {
+    font-size: 0.875rem;
+    margin: 0;
+    padding-bottom: 1.25rem;
+    border-bottom: 1px solid var(--border-colour);
+}
+
+.error {
+    font-size: 0.875rem;
+    margin-top: 1.25rem;
+    text-align: center;
+}
+
+label {
+    font-size: 0.875rem;
+    margin: 1.25rem 0 0.5rem 0;
+}
+
+input {
+    padding: 0.5rem 1rem;
+    border: 1px solid var(--border-colour);
+    border-radius: 8px;
+    font-family: var(--primary-font);
+}
+
+button {
+    margin: 2rem 0;
+    padding: 0.75rem 0;
+    border: none;
+    border-radius: 8px;
+    background-color: var(--main-accent-colour);
+    color: var(--text-colour-light);
+    font-family: var(--primary-font);
+    font-weight: 500;
+    cursor: pointer;
+
+    &:hover, &:focus {
+        background-color: var(--main-accent-colour-light);
+    }
+}
+
+.link {
+    text-align: center;
+    font-size: 0.875rem;
+
+    & a {
+        color: var(--secondary-accent-colour);
+        text-underline-offset: 0.2em;
+    }
+}

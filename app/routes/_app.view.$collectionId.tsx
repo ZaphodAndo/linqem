@@ -1,6 +1,6 @@
 import { json } from "@remix-run/cloudflare";
 import { isRouteErrorResponse, useLoaderData, useRouteError } from "@remix-run/react";
-import { getCollection } from "~/lib/db.server";
+import { getCollection } from "~/models/collections.server";
 import { formatUrl } from "~/lib/formatUrl";
 
 import type { MetaFunction } from "@remix-run/node";
