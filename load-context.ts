@@ -20,7 +20,7 @@ export function getLoadContext({ context }: { request: Request; context: LoadCon
     cookie: {
       name: "session",
       httpOnly: true,
-      secure: process.env.NODE_ENV === "production",
+      secure: context.cloudflare.env.ENVIRONMENT === "production",
       path: "/",
       secrets: [context.cloudflare.env.SESSION_SECRET ?? "s3cr3t"]
     }
