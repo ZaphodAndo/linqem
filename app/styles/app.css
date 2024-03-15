@@ -39,10 +39,10 @@ main {
 }
 
 footer {
-    margin-top: auto;
+    margin-top: 6.25rem;
     display: flex;
     border-top: 1px solid var(--border-colour);
-    padding-top: 1.25rem;
+    padding: 1.25rem 0;
 
     & div {
         display: flex;

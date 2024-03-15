@@ -1,7 +1,7 @@
 import { ILink } from "./ILink";
 
 export interface ISection {
+  id: string;
   title: string;
-  description: string;
   links: Array<ILink>;
 }

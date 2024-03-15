@@ -19,3 +19,27 @@ export const getCollection = async (collectionId: string, context: AppLoadContex
   results[0].sections = JSON.parse(results[0].sections as string);
   return results[0];
 };
+
+export const createCollection = async (
+  title: string,
+  description: string,
+  sections: string,
+  userId: string,
+  context: AppLoadContext
+) => {
+  const collectionId = crypto.randomUUID();
+  const createdAt = new Date().toISOString();
+
+  const env = context.cloudflare.env as Env;
+  const { success } = await env.LINQEM_DB.prepare(
+    "INSERT INTO collections (collection_id, created_at, title, description, sections, user_id) values (?, ?, ?, ?, ?, ?)"
+  )
+    .bind(collectionId, createdAt, title, description, sections, userId)
+    .run();
+
+  if (success) {
+    return collectionId;
+  } else {
+    return null;
+  }
+};
