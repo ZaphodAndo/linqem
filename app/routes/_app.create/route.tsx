@@ -1,7 +1,6 @@
 import { json } from "@remix-run/cloudflare";
 import { redirect, Form } from "@remix-run/react";
 import { useReducer } from "react";
-import { getSession } from "~/session.server";
 import { createCollection } from "~/models/collections.server";
 import { Section } from "~/routes/_app.create/section";
 import { sectionsReducer } from "~/routes/_app.create/sectionsReducer";
@@ -31,8 +30,8 @@ export const meta: MetaFunction = () => {
 
 export const links: LinksFunction = () => [{ rel: "stylesheet", href: styles }];
 
-export async function loader({ request }: LoaderFunctionArgs) {
-  const session = await getSession(request.headers.get("cookie"));
+export async function loader({ context, request }: LoaderFunctionArgs) {
+  const session = await context.sessionStorage.getSession(request.headers.get("cookie"));
   if (!session.has("userId")) return redirect("/");
   return json({});
 }
@@ -43,7 +42,7 @@ export async function action({ context, request }: ActionFunctionArgs) {
   const description = formData.get("description") as string;
   const sections = formData.get("sections") as string;
 
-  const session = await getSession(request.headers.get("cookie"));
+  const session = await context.sessionStorage.getSession(request.headers.get("cookie"));
   const userId = session.get("userId");
 
   if (userId === undefined) {

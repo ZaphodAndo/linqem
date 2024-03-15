@@ -1,6 +1,5 @@
 import { Form, Link, redirect, useActionData } from "@remix-run/react";
 import { json } from "@remix-run/cloudflare";
-import { commitSession, getSession } from "~/session.server";
 import { createUser, getUserByEmail } from "~/models/user.server";
 
 import type { MetaFunction, LoaderFunctionArgs, ActionFunctionArgs } from "@remix-run/cloudflare";
@@ -15,8 +14,8 @@ export const meta: MetaFunction = () => {
   ];
 };
 
-export async function loader({ request }: LoaderFunctionArgs) {
-  const session = await getSession(request.headers.get("cookie"));
+export async function loader({ context, request }: LoaderFunctionArgs) {
+  const session = await context.sessionStorage.getSession(request.headers.get("cookie"));
   if (session.has("userId")) return redirect("/");
   return json({});
 }
@@ -48,11 +47,11 @@ export async function action({ context, request }: ActionFunctionArgs) {
     });
   }
 
-  const session = await getSession(request.headers.get("cookie"));
+  const session = await context.sessionStorage.getSession(request.headers.get("cookie"));
   session.set("userId", userId);
 
   return redirect("/", {
-    headers: { "set-cookie": await commitSession(session) }
+    headers: { "set-cookie": await context.sessionStorage.commitSession(session) }
   });
 }
 

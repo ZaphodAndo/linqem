@@ -1,6 +1,5 @@
 import { Form, Link, Outlet, useLoaderData } from "@remix-run/react";
 import { json } from "@remix-run/cloudflare";
-import { getSession } from "~/session.server";
 
 import type { LinksFunction, LoaderFunctionArgs } from "@remix-run/cloudflare";
 
@@ -8,8 +7,8 @@ import styles from "~/styles/app.css?url";
 
 export const links: LinksFunction = () => [{ rel: "stylesheet", href: styles }];
 
-export async function loader({ request }: LoaderFunctionArgs) {
-  const session = await getSession(request.headers.get("cookie"));
+export async function loader({ context, request }: LoaderFunctionArgs) {
+  const session = await context.sessionStorage.getSession(request.headers.get("cookie"));
 
   if (session.has("userId")) {
     return json({ authenticated: true });
