@@ -42,8 +42,10 @@ export default function Index() {
           collections.map((collection, key) => {
             return (
               <li key={key}>
-                <Link to={"/view/" + collection.collection_id}>{collection.title}</Link>
-                <time dateTime={collection.created_at}>{formatDate(collection.created_at)}</time>
+                <Link to={"/view/" + collection.collection_id}>
+                  {collection.title}
+                  <time dateTime={collection.created_at}>{formatDate(collection.created_at)}</time>
+                </Link>
               </li>
             );
           })

@@ -27,7 +27,7 @@ nav {
         text-decoration: underline;
         padding: 0;
 
-        &:hover {
+        &:hover, &:focus {
             color: var(--main-accent-colour);
             text-decoration: none;
         }
