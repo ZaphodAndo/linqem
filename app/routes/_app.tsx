@@ -24,7 +24,8 @@ export default function App() {
     <div className="app">
       <nav>
         <Link to="/">
-          <img src="/full-logo.svg" alt="Go to home" />
+          <img src="/images/full-logo.svg" alt="Go to home" />
+          <img src="/images/small-logo.svg" alt="Go to home" />
         </Link>
         <div className="nav-links">
           <Link to="/create">Create</Link>

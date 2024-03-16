@@ -15,7 +15,7 @@ export const meta: MetaFunction = () => {
     {
       name: "description",
       content:
-        "An elegant link aggregation repository for the web. Discover collections of useful web content for any topic, curated by a community of researchers and sharers."
+        "An elegant link aggregation repository for the web. Discover collections of useful web content for any topic."
     }
   ];
 };

@@ -1,6 +1,6 @@
 .app {
     max-width: 760px;
-    margin: 6.25rem auto 0 auto;
+    margin: clamp(1.25rem, -3.6201rem + 20.7792vw, 6.25rem) auto 0 auto;
     min-height: calc(90vh);
     display: flex;
     flex-direction: column;
@@ -9,7 +9,22 @@
 nav {
     display: flex;
     align-items: center;
-    margin-bottom: 6.25rem;
+    margin: 0 1.25rem 6.25rem 1.25rem;
+
+    & img:last-of-type {
+        display: none;
+    }
+
+    @media (max-width: 450px) {
+        & img:first-of-type {
+            display: none;
+        }
+
+        & img:last-of-type {
+            display: block;
+            width: 2.5rem;
+        }
+    }
 }
 .nav-links {
     display: flex;
@@ -36,10 +51,11 @@ nav {
 
 main {
     flex-grow: 1;
+    margin: 0 1.25rem;
 }
 
 footer {
-    margin-top: 6.25rem;
+    margin: 6.25rem 1.25rem 0 1.25rem;
     display: flex;
     border-top: 1px solid var(--border-colour);
     padding: 1.25rem 0;

@@ -11,7 +11,7 @@ export default function Auth() {
   return (
     <Fragment>
       <Link to="/">
-        <img className="logo" src="/full-logo.svg" alt="Go to home" />
+        <img className="logo" src="/images/full-logo.svg" alt="Go to home" />
       </Link>
       <main>
         <Outlet />
